@@ -13,23 +13,21 @@ Particle::Particle(GLfloat x, GLfloat y, GLfloat z) {
   d = 1.f;
 }
 
-void Particle::updateVel(float t) {
-  v = v*(GLfloat)d^t + fsum*(GLfloat)t;
+void Particle::updateVel(float t, Vector acc) {
+  v = v*(GLfloat)pow(d,t) + acc*(GLfloat)t;
 }
 void Particle::updatePos(float t) {
-  p = p+v*(GLfloat)t+fsum*((GLfloat)t^2)*0.5;
+  p = p+v*(GLfloat)t+fsum*((GLfloat)pow(t,2))*0.5;
 }
 
 void Particle::integrate(float t) {
-  if (duration == 0.0) return;
+  if (t == 0.0) return;
   updatePos(t);
 
-  acc = a;
+  Vector acc = a;
   acc += fsum*m; //?
-  updateVel(t);
-
+  updateVel(t, acc);
   clearForces();
-
 }
 
 void Particle::addForce(const Vector &force) {

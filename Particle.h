@@ -4,6 +4,7 @@
 #include "gllibs.h"
 #include "Vector.h"
 
+
 struct Particle {
 
   // Mass
@@ -24,7 +25,7 @@ struct Particle {
   GLfloat d;
   Particle();
   Particle(GLfloat x, GLfloat y, GLfloat z);
-  void updateVel(float t);
+  void updateVel(float t, Vector acc);
   void updatePos(float t);
   void integrate(float t);
   void addForce(const Vector &force);
