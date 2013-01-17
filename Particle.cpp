@@ -2,7 +2,7 @@
 
 Particle::Particle() {
   m = 1.f;
-  d = .99f;
+  d = 1.f;
 }
 
 Particle::Particle(GLfloat x, GLfloat y, GLfloat z) {
@@ -37,6 +37,8 @@ void Particle::addForce(const Vector &force) {
 void Particle::clearForces() {
   fsum.clear();
 }
+
+void Particle::render() {}
 
 Particle::~Particle() {
 }

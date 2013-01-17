@@ -12,6 +12,7 @@ ParticleForceGenerator.o : Particle.o
 
 Particle.o : Vector.o
 	$(CC) $(LINKER_FlAGS) $(INCLUDE_PATHS) -c Particle.cpp
+
 Vector.o :
 	$(CC) $(LINKER_FLAGS) $(INCLUDE_PATHS) -c Vector.cpp
 

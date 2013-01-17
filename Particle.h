@@ -30,6 +30,7 @@ struct Particle {
   void integrate(float t);
   void addForce(const Vector &force);
   void clearForces();
+  virtual void render();
   ~Particle();
 };
 
