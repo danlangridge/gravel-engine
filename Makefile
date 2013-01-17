@@ -4,6 +4,9 @@ INCLUDE_PATHS = -I./../
 LINKER_FLAGS = -lGL -lGLU -lglut -lSOIL 
 
 
+PFholder.o : ParticleForceGenerator.o
+	$(CC) $(LINKER_FLAGS) $(INCLUDE_PATHS) -c PFholder.cpp
+
 ParticleForceGenerator.o : Particle.o
 	$(CC) $(LINKER_FLAGS) $(INCLUDE_PATHS) -c ParticleForceGenerator.cpp
 
@@ -12,6 +15,6 @@ Particle.o : Vector.o
 Vector.o :
 	$(CC) $(LINKER_FLAGS) $(INCLUDE_PATHS) -c Vector.cpp
 
-all: ParticleForceGenerator.o
+all: PFholder.o
 
 clean: rm *.o 

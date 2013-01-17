@@ -11,25 +11,15 @@ class ParticleForceGenerator {
 class ParticleGravity : public ParticleForceGenerator {
   public:
     Vector g;
-    ParticleGravity(Vector g) 
-      :g(g) {}
-    void updateForce(Particle* particle, float t) {
-      particle->addForce(g);
-    }
+    ParticleGravity(Vector g);
+    void updateForce(Particle* particle, float t);
 };
 
 class ParticleDrag : public ParticleForceGenerator {
   public:
     GLfloat k1, k2;
-    ParticleDrag(float k1, float k2) 
-      :k1(k1), k2(k2) {}
-    void updateForce(Particle* particle, float t) {
-      GLfloat m = (particle->v).magnitude();
-      m = k1*m+k2*m*m;
-      (particle->v).normalize();
-      force *= -m;
-      particle->addForce(force);
-    }
+    ParticleDrag(float k1, float k2);
+    void updateForce(Particle* particle, float t);
 };
 
 #endif

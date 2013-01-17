@@ -2,7 +2,7 @@
 
 Particle::Particle() {
   m = 1.f;
-  d = 1.f;
+  d = .99f;
 }
 
 Particle::Particle(GLfloat x, GLfloat y, GLfloat z) {
@@ -14,7 +14,7 @@ Particle::Particle(GLfloat x, GLfloat y, GLfloat z) {
 }
 
 void Particle::updateVel(float t, Vector acc) {
-  v = v*(GLfloat)pow(d,t) + acc*(GLfloat)t;
+  v = v*pow(d,t) + acc*(GLfloat)t;
 }
 void Particle::updatePos(float t) {
   p = p+v*(GLfloat)t+fsum*((GLfloat)pow(t,2))*0.5;
