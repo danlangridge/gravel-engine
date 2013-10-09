@@ -1,7 +1,6 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#pragma once
 
-#include "gllibs.h"
+#include <gl_libs.h>
 
 struct Vector {
  GLfloat x;
@@ -28,5 +27,3 @@ struct Vector {
  void operator%=(const Vector &vector);
 
 };
-
-#endif

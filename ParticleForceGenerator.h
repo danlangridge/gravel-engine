@@ -1,5 +1,4 @@
-#ifndef PARTICLEFORCEGENERATOR_H
-#define PARTICLEFORCEGENERATOR_H
+#pragma once
 
 #include "Particle.h"
 
@@ -21,5 +20,3 @@ class ParticleDrag : public ParticleForceGenerator {
     ParticleDrag(float k1, float k2);
     void updateForce(Particle* particle, float t);
 };
-
-#endif

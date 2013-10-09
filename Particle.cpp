@@ -13,6 +13,44 @@ Particle::Particle(GLfloat x, GLfloat y, GLfloat z) {
   d = 1.f;
 }
 
+void Particle::setPos(float x, float y, float z) {
+  p.x = x;
+  p.y = y;
+  p.z = z;
+}
+
+
+void Particle::setVel(float x, float y, float z) {
+  v.x = x;
+  v.y = y;
+  v.z = z;
+}
+
+void Particle::setAcc(float x, float y, float z) {
+  a.x = x;
+  a.y = y;
+  a.z = z;
+}
+
+void Particle::incPos(float x, float y, float z) {
+  p.x += x;
+  p.y += y;
+  p.z += z;
+}
+
+
+void Particle::incVel(float x, float y, float z) {
+  v.x += x;
+  v.y += y;
+  v.z += z;
+}
+
+void Particle::incAcc(float x, float y, float z) {
+  a.x += x;
+  a.y += y;
+  a.z += z;
+}
+
 void Particle::updateVel(float t, Vector acc) {
   v = v*pow(d,t) + acc*(GLfloat)t;
 }
