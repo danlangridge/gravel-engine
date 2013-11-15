@@ -4,11 +4,9 @@ include_directories(
 )
 
 add_library(Gravel STATIC 
-  Vector.cpp 
+  Vector.cpp
+  Quaternion.cpp
   Particle.cpp
   ParticleForceGenerator.cpp
   PFholder.cpp
 )
-
-add_library(Vector Vector.cpp)
-add_library(Particle Particle.cpp)

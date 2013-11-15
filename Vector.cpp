@@ -38,6 +38,13 @@ Vector Vector::crossProduct(const Vector &vector) {
                 x*vector.y-y*vector.x);
 }
 
+static Vector crossProduct(const Vector &vector1, const Vector &vector2) {
+  return Vector(vector1.y*vector2.z - vector1.z*vector2.y,
+                vector1.z*vector2.x - vector1.x*vector2.z,
+                vector1.x*vector2.y - vector1.y*vector2.x);
+}
+
+
 GLfloat Vector::theta(const Vector &vector) {
   return acos(normalized()*vector.normalized());
 }
