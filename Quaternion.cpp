@@ -31,7 +31,7 @@ Quaternion Quaternion::operator+(const Quaternion &quaternion) const {
  
 Quaternion Quaternion::operator*(const Quaternion &quaternion) const {
   return Quaternion( a*quaternion.a - v*quaternion.v,
-                     quaternion.v*a + v*quaternion.a + Vector::crossProduct(v, quaternion.v)
+                     quaternion.v*a + v*quaternion.a + v.crossProduct(quaternion.v)
                    );
 }
 
