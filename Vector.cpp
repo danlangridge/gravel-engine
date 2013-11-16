@@ -28,11 +28,11 @@ void Vector::invert() {
   y = -y;
   z = -z;
 }
-GLfloat Vector::dotProduct(const Vector &vector) {
+GLfloat Vector::dotProduct(const Vector &vector) const {
   return x*vector.x + y*vector.y + z*vector.z;
 }
 
-Vector Vector::crossProduct(const Vector &vector) {
+Vector Vector::crossProduct(const Vector &vector) const {
   return Vector(y*vector.z-z*vector.y,
                 z*vector.x-x*vector.z,
                 x*vector.y-y*vector.x);
@@ -57,7 +57,7 @@ void Vector::clear() {
 
 Vector::~Vector() {}
 
-Vector Vector::operator+(const Vector &vector) {
+Vector Vector::operator+(const Vector &vector) const {
   return Vector(x+vector.x, y+vector.y, z+vector.z);
 }
 
@@ -65,11 +65,11 @@ void Vector::operator+=(const Vector &vector) {
   *this = Vector(x+vector.x, y+vector.y, z+vector.z);
 }
 
-GLfloat Vector::operator*(const Vector &vector) {
+GLfloat Vector::operator*(const Vector &vector) const {
   return dotProduct(vector);
 }
 
-Vector Vector::operator*(const GLfloat &k) {
+Vector Vector::operator*(const GLfloat &k) const {
   return Vector(x*k,y*k,z*k);
 }
 
