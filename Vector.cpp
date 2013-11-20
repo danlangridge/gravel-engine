@@ -2,9 +2,11 @@
 #include <cmath>
 
 Vector::Vector() 
-  :x(0), y(0), z(0) {}
+  :x(0), y(0), z(0), w(1) {}
 Vector::Vector(GLfloat x, GLfloat y, GLfloat z) 
-  :x(x), y(y), z(z) {}
+  :x(x), y(y), z(z), w(1) {}
+Vector::Vector(GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+  :x(x), y(y), z(z), w(w) {}
 void Vector::scale(GLfloat k) {
   x = k*x;
   y = k*y;

@@ -6,9 +6,11 @@ struct Vector {
  GLfloat x;
  GLfloat y;
  GLfloat z;
+ GLfloat w;
 
  Vector();
  Vector(GLfloat x, GLfloat y, GLfloat z);
+ Vector(GLfloat x, GLfloat y, GLfloat z, GLfloat w);
  void scale(GLfloat k);
  GLfloat magnitude() const;
  Vector normalized() const;
