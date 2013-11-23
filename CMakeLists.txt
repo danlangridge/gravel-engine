@@ -5,6 +5,7 @@ include_directories(
 
 add_library(GeometricEntities STATIC
   Vector.cpp
+  Mat4.cpp
 )
 
 add_library(Quaternions STATIC
