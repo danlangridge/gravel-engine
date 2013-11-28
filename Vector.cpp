@@ -82,3 +82,38 @@ Vector Vector::operator%(const Vector &vector) {
 void Vector::operator%=(const Vector &vector) {
   *this = crossProduct(vector);
 }
+
+GLfloat Vector::operator[](const size_t index) const {
+ switch(index) {
+  case 0:
+    return x; 
+    break;
+  case 1:
+    return y; 
+    break;
+  case 2:
+    return z; 
+    break;
+  case 3:
+    return w; 
+    break;
+ }
+ return w;
+}
+GLfloat& Vector::operator[](const size_t index) {
+ switch(index) {
+  case 0:
+    return x; 
+    break;
+  case 1:
+    return y; 
+    break;
+  case 2:
+    return z; 
+    break;
+  case 3:
+    return w; 
+    break;
+ }
+ return w;
+}

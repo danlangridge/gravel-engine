@@ -28,5 +28,7 @@ struct Vector {
  Vector operator*(const GLfloat &k) const;
  Vector operator%(const Vector &vector);
  void operator%=(const Vector &vector);
+ GLfloat operator[](const size_t index) const;
+ GLfloat& operator[](const size_t index);
 
 };

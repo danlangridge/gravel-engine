@@ -56,3 +56,12 @@ Mat4 Mat4::operator=(const Mat4 &matrix) {
  }
  return *this; 
 }
+
+GLfloat Mat4::operator[](const size_t index) const {
+ return m[index];
+}
+
+GLfloat& Mat4::operator[](const size_t index) {
+ return m[index];
+}
+
