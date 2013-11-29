@@ -22,6 +22,26 @@ void Mat4::populateMatrix(GLfloat m[]) {
  }
 }
 
+GLfloat detHelper(int matrixSize, GLfloat* matrix) {
+ if (matrixSize == 2) return matrix[0]*matrix[3] - matrix[1]*matrix[2];  
+ GLfloat determinant = 0;
+ for ( unsigned index = 0; index < matrixSize  ; index = index + matrixSize) {
+   GLfloat* minor = new GLfloat[(matrixSize-1) *(matrixSize-1)];
+  
+   //TODO: calculate minor
+   for (unsigned minorIndex = index; minorIndex < 1; minorIndex++) {
+
+   }
+   determinant += index*detHelper(matrixSize-1, minor); 
+ }
+ return determinant;
+}
+
+GLfloat Mat4::det() {
+ return detHelper(MAT4_SIZE,m);
+
+}
+
 Vector Mat4::operator*(const Vector &vector) const {
  return Vector( m[0]*vector.x + m[1]*vector.y + m[2]*vector.z + m[3]*vector.w,
                 m[4]*vector.x + m[5]*vector.y + m[6]*vector.z + m[7]*vector.w,

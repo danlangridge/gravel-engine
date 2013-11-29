@@ -2,15 +2,16 @@
 #include <cmath>
 
 Vector::Vector() 
-  :x(0), y(0), z(0), w(1) {}
+  :x(0), y(0), z(0), w(0) {}
 Vector::Vector(GLfloat x, GLfloat y, GLfloat z) 
-  :x(x), y(y), z(z), w(1) {}
+  :x(x), y(y), z(z), w(0) {}
 Vector::Vector(GLfloat x, GLfloat y, GLfloat z, GLfloat w)
   :x(x), y(y), z(z), w(w) {}
 void Vector::scale(GLfloat k) {
   x = k*x;
   y = k*y;
   z = k*z;
+  w = k*w;
 }
 GLfloat Vector::magnitude() const{
   return sqrt(x*x+y*y+z*z);
@@ -29,9 +30,11 @@ void Vector::invert() {
   x = -x;
   y = -y;
   z = -z;
+  w = -w;
 }
+
 GLfloat Vector::dotProduct(const Vector &vector) const {
-  return x*vector.x + y*vector.y + z*vector.z;
+  return x*vector.x + y*vector.y + z*vector.z + w*vector.w;
 }
 
 Vector Vector::crossProduct(const Vector &vector) const {
@@ -55,16 +58,17 @@ void Vector::clear() {
   x = 0;
   y = 0;
   z = 0;
+  w = 0;
 }
 
 Vector::~Vector() {}
 
 Vector Vector::operator+(const Vector &vector) const {
-  return Vector(x+vector.x, y+vector.y, z+vector.z);
+  return Vector(x+vector.x, y+vector.y, z+vector.z, w+vector.w);
 }
 
 void Vector::operator+=(const Vector &vector) {
-  *this = Vector(x+vector.x, y+vector.y, z+vector.z);
+  *this = Vector(x+vector.x, y+vector.y, z+vector.z,w+vector.w);
 }
 
 GLfloat Vector::operator*(const Vector &vector) const {
@@ -72,7 +76,7 @@ GLfloat Vector::operator*(const Vector &vector) const {
 }
 
 Vector Vector::operator*(const GLfloat &k) const {
-  return Vector(x*k,y*k,z*k);
+  return Vector(x*k,y*k,z*k,w*k);
 }
 
 Vector Vector::operator%(const Vector &vector) {
@@ -100,6 +104,7 @@ GLfloat Vector::operator[](const size_t index) const {
  }
  return w;
 }
+
 GLfloat& Vector::operator[](const size_t index) {
  switch(index) {
   case 0:
