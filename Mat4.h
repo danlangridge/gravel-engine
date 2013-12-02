@@ -18,6 +18,7 @@ struct Mat4 {
   void populateMatrix(GLfloat m[]);
 
   GLfloat det(); 
+  void translate(const Vector& position); 
 
   Mat4 operator*(const Mat4 &m2) const;
   Vector operator*(const Vector &vector) const;

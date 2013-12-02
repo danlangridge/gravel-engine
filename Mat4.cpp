@@ -39,7 +39,12 @@ GLfloat detHelper(int matrixSize, GLfloat* matrix) {
 
 GLfloat Mat4::det() {
  return detHelper(MAT4_SIZE,m);
+}
 
+void Mat4::translate(const Vector& position) {
+ m[12] = position[0];
+ m[13] = position[1];
+ m[14] = position[2];
 }
 
 Vector Mat4::operator*(const Vector &vector) const {
