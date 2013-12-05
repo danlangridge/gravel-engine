@@ -1,5 +1,6 @@
 #pragma once
 #include <Vector.h>
+#include <string>
 
 static const int MAT4_SIZE = 16; 
 
@@ -18,7 +19,10 @@ struct Mat4 {
   void populateMatrix(GLfloat m[]);
 
   GLfloat det(); 
-  void translate(const Vector& position); 
+  
+  void translate(const Vector& position);
+  
+  std::string output();
 
   Mat4 operator*(const Mat4 &m2) const;
   Vector operator*(const Vector &vector) const;

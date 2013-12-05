@@ -1,14 +1,14 @@
 #include <Mat4.h>
-
+#include <sstream>
 
 Mat4::Mat4()
 {
- for (unsigned index; index < MAT4_SIZE; index++) {
-  if (index % 4 == 0) m[index] = 1;
+ for (unsigned index = 0; index < MAT4_SIZE; index++) {
+  if (index % 5 == 0)
+    m[index] = 1;
   else m[index] = 0;
  }
 }
-
 
 Mat4::Mat4(const GLfloat m[]) {
  for (unsigned index = 0; index < MAT4_SIZE; index++) {
@@ -45,6 +45,21 @@ void Mat4::translate(const Vector& position) {
  m[12] = position[0];
  m[13] = position[1];
  m[14] = position[2];
+}
+
+std::string Mat4::output() {
+
+ std::stringstream matrix;
+
+ for (unsigned i = 0; i < 4; i++) {
+  for (unsigned j = 0; j < 4 ; j++) {
+   
+   matrix << m[i + j*4] << "  ";
+  }
+  matrix << "\n";
+ }
+ 
+ return matrix.str();
 }
 
 Vector Mat4::operator*(const Vector &vector) const {
