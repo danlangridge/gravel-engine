@@ -27,10 +27,11 @@ BOOST_AUTO_TEST_CASE( Vector_test )
 
 }
 
+//BOOST_AUTO_TEST_SUITE
 
 bool compareMatrices(Mat4 mat1, Mat4 mat2) {
 
-  for (unisgned i = 0; i < 16; i++) {
+  for (unsigned i = 0; i < 16; i++) {
     if (mat1[i] != mat2[i]) return false;
   }
   return false;
@@ -46,7 +47,7 @@ BOOST_AUTO_TEST_CASE( Mat4_test ) {
                           };
   
   Mat4 test_matrix1;
-  Mat4 test_matrix2(matrix);
+  Mat4 test_matrix2(float_array);
 
   BOOST_CHECK( compareMatrices(test_matrix1, test_matrix2) );
 

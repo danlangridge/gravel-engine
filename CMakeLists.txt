@@ -22,3 +22,4 @@ add_library(Gravel STATIC
 
 target_link_libraries(Gravel GeometricEntities Quaternions)
 
+add_subdirectory(tests)
