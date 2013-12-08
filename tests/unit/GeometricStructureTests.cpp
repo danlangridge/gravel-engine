@@ -1,18 +1,27 @@
+#define BOOST_TEST_DYN_LINK
+//#define BOOST_TEST_MODULE Main
+#define BOOST_TEST_MODULE Vector_test
+
 #include <Vector.h>
 #include <Mat4.h>
 
 #include <boost/test/unit_test.hpp>
 
-#define BOOST_TEST_MODULE Vector_test
 
 #include <math.h>
 
+BOOST_AUTO_TEST_SUITE ( GeometricStructureTests )
 
 BOOST_AUTO_TEST_CASE( Vector_test )
 {
   
   Vector test_vector(1,1,1,1);
-   
+  
+  BOOST_CHECK( test_vector.x == test_vector[0] );
+  BOOST_CHECK( test_vector.y == test_vector[1] );
+  BOOST_CHECK( test_vector.z == test_vector[2] );
+  BOOST_CHECK( test_vector.w == test_vector[3] );
+ 
   test_vector.normalize();
 
   float norm = sqrt( test_vector.x*test_vector.x + 
@@ -24,10 +33,8 @@ BOOST_AUTO_TEST_CASE( Vector_test )
   BOOST_CHECK( norm + 0.1 > test_vector.magnitude() &&
                norm - 0.1 < test_vector.magnitude()
              );
-
 }
 
-//BOOST_AUTO_TEST_SUITE
 
 bool compareMatrices(Mat4 mat1, Mat4 mat2) {
 
@@ -50,5 +57,7 @@ BOOST_AUTO_TEST_CASE( Mat4_test ) {
   Mat4 test_matrix2(float_array);
 
   BOOST_CHECK( compareMatrices(test_matrix1, test_matrix2) );
-
 }
+
+
+BOOST_AUTO_TEST_SUITE_END()

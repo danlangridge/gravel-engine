@@ -3,16 +3,20 @@
 
 Vector::Vector() 
   :x(0), y(0), z(0), w(0) {}
+
 Vector::Vector(GLfloat x, GLfloat y, GLfloat z) 
   :x(x), y(y), z(z), w(0) {}
+
 Vector::Vector(GLfloat x, GLfloat y, GLfloat z, GLfloat w)
   :x(x), y(y), z(z), w(w) {}
+
 void Vector::scale(GLfloat k) {
   x = k*x;
   y = k*y;
   z = k*z;
   w = k*w;
 }
+
 GLfloat Vector::magnitude() const{
   return sqrt(x*x+y*y+z*z);
 }
