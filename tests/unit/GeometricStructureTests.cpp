@@ -1,5 +1,4 @@
 #define BOOST_TEST_DYN_LINK
-//#define BOOST_TEST_MODULE Main
 #define BOOST_TEST_MODULE Vector_test
 
 #include <Vector.h>

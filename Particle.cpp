@@ -1,4 +1,5 @@
 #include "Particle.h"
+#include <cmath>
 
 Particle::Particle() {
   m = 1.f;
