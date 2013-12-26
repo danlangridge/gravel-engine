@@ -40,16 +40,6 @@ void Quaternion::normalize() {
  w *= magInv;
 }
 
-Mat4 Quaternion::matrix() {
- Quaternion q = normalized();
- GLfloat m[16] = { 1.0 - 2.0*q[1]*q[1] - 2.0*q[2]*q[2], 2.0*q[0]*q[1] - 2.0*q[2]*q[3], 2.0*q[0]*q[2] + 2.0*q[1]*q[3], 0.0,
-                   2.0*q[0]*q[1] + 2.0*q[2]*q[3], 1.0 - 2.0*q[0]*q[0] - 2.0*q[2]*q[2], 2.0*q[1]*q[2] - 2.0*q[0]*q[3], 0.0,
-                   2.0*q[0]*q[2] - 2.0*q[1]*q[3], 2.0*q[1]*q[2] + 2.0*q[0]*q[3], 1.0 - 2.0*q[0]*q[0] - 2.0*q[1]*q[1], 0.0,
-                   0.0, 0.0, 0.0, 1.0
-                 };
- return Mat4(m);
-}
-
 Quaternion Quaternion::operator+(const Quaternion &quaternion) const {
   return Quaternion(v + quaternion.v, w + quaternion.w );
 }

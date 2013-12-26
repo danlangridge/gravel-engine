@@ -14,12 +14,18 @@ add_library(Quaternions STATIC
 
 target_link_libraries(Quaternions GeometricEntities)
 
+add_library(Conversions STATIC
+  Conversion.cpp
+)
+
+target_link_libraries(Conversions Quaternions)
+
 add_library(Gravel STATIC 
   Particle.cpp
   ParticleForceGenerator.cpp
   PFholder.cpp
 )
 
-target_link_libraries(Gravel GeometricEntities Quaternions)
+target_link_libraries(Gravel Conversions)
 
 add_subdirectory(tests)

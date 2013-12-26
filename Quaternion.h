@@ -1,6 +1,5 @@
 #pragma once
 #include <Vector.h>
-#include <Mat4.h>
 
 //TODO: Add Matrix multiplication variants
 class Quaternion {
@@ -16,7 +15,6 @@ public:
  Quaternion inverse() const;
  Quaternion normalized() const; 
  void normalize();
- Mat4 matrix();
  Quaternion operator*(const GLfloat &scalar) const;
  Quaternion operator+(const Quaternion &quaternion) const;
  Quaternion operator*(const Quaternion &quaternion) const;
