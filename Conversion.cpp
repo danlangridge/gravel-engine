@@ -2,7 +2,7 @@
 #include <math.h>
 
 
-Quaternion Mat4ToQuaternion(const Mat4 &mat) {
+Quaternion Conversion::Mat4ToQuaternion(const Mat4 &mat) {
   GLfloat w = sqrt(1 + mat[0] + mat[5] + mat[10])/2; 
   GLfloat invW = 1/(4*w); 
   Quaternion quaternion( (mat[6] - mat[9])*invW,
@@ -13,7 +13,7 @@ Quaternion Mat4ToQuaternion(const Mat4 &mat) {
   return quaternion;
 }
 
-Mat4 QuaternionToMat4(const Quaternion &quaternion) {
+Mat4 Conversion::QuaternionToMat4(const Quaternion &quaternion) {
   
    Quaternion q = quaternion.normalized();
    GLfloat m[16] = { 1.0 - 2.0*q[1]*q[1] - 2.0*q[2]*q[2], 2.0*q[0]*q[1] - 2.0*q[2]*q[3], 2.0*q[0]*q[2] + 2.0*q[1]*q[3], 0.0,

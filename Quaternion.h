@@ -1,7 +1,6 @@
 #pragma once
 #include <Vector.h>
 
-//TODO: Add Matrix multiplication variants
 class Quaternion {
 public: 
  Vector v;
