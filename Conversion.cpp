@@ -25,3 +25,14 @@ Mat4 Conversion::QuaternionToMat4(const Quaternion &quaternion) {
   Mat4 mat(m);
   return mat;
 }
+
+Mat4 Conversion::EulerToMat4(GLfloat alpha, GLfloat beta, GLfloat gamma) {
+
+  GLfloat mat[16] = { cos(beta), cos(alpha)*sin(beta), sin(alpha)*sin(beta), 0,
+                      -cos(gamma)*sin(beta), cos(alpha)*cos(beta)*cos(gamma) - sin(alpha)*sin(gamma),
+                      cos(alpha)*sin(gamma) + cos(beta)*cos(gamma)*sin(alpha), 0,
+                      sin(alpha)*sin(beta), -cos(gamma)*sin(alpha) - cos(alpha)*cos(beta)*cos(gamma),
+                      cos(alpha)*cos(gamma) - cos(beta)*sin(alpha)*sin(gamma), 0
+                    };
+  return Mat4(mat);
+}
