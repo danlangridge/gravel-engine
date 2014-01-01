@@ -1,7 +1,6 @@
 #pragma once
-//#include <Mat4.h>
-
 #include <gl_libs.h>
+
 
 struct Vector {
  GLfloat x;
@@ -31,5 +30,4 @@ struct Vector {
  void operator%=(const Vector &vector);
  GLfloat operator[](const size_t index) const;
  GLfloat& operator[](const size_t index);
- //Vector Vector::operator*(const Mat4 &mat) const;
 };

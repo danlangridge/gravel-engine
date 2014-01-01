@@ -37,7 +37,7 @@ Mat4 Conversion::EulerToMat4(GLfloat alpha, GLfloat beta, GLfloat gamma) {
   return Mat4(mat);
 }
 
-Vector Conversion::VectorTimesMat4(const Vector &v, const Mat4 &mat) {
+Vector Conversion::VectorMat4Mult(const Vector &v, const Mat4 &mat) {
  return Vector( mat[0]*v.x + mat[4]*v.y + mat[8]*v.z + mat[12]*v.w,
                 mat[1]*v.x + mat[5]*v.y + mat[9]*v.z + mat[13]*v.w,
                 mat[2]*v.x + mat[6]*v.y + mat[10]*v.z + mat[14]*v.w,
@@ -45,7 +45,7 @@ Vector Conversion::VectorTimesMat4(const Vector &v, const Mat4 &mat) {
               );
 }
 
-Vector Conversion::Mat4TimesVector(const Mat4 &mat, const Vector &vector) {
+Vector Conversion::Mat4VectorMult(const Mat4 &mat, const Vector &vector) {
  return Vector( mat.m[0]*vector.x + mat.m[1]*vector.y + mat.m[2]*vector.z + mat.m[3]*vector.w,
                 mat.m[4]*vector.x + mat.m[5]*vector.y + mat.m[6]*vector.z + mat.m[7]*vector.w,
                 mat.m[8]*vector.x + mat.m[9]*vector.y + mat.m[10]*vector.z + mat.m[11]*vector.w,

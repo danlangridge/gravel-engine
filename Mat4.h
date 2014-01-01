@@ -4,6 +4,7 @@
 
 static const int MAT4_SIZE = 16; 
 
+
 /*
  * A 4x4 Matrix class
  * Initialized column-major order
