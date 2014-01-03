@@ -5,7 +5,7 @@ Quaternion::Quaternion()
  :v(),w(0)
 {}
 
-Quaternion::Quaternion(GLfloat i, GLfloat j, GLfloat k,GLfloat w)
+Quaternion::Quaternion(GLfloat i, GLfloat j, GLfloat k, GLfloat w)
  :v(i, j, k), w(w)
 {}
 

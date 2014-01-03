@@ -3,6 +3,7 @@
 
 #include <Vector.h>
 #include <Mat4.h>
+#include <Quaternion.h>
 
 #include <boost/test/unit_test.hpp>
 
@@ -58,5 +59,26 @@ BOOST_AUTO_TEST_CASE( Mat4_test ) {
   BOOST_CHECK( compareMatrices(test_matrix1, test_matrix2) );
 }
 
+BOOST_AUTO_TEST_CASE( Quaternion_test ) {
+  Quaternion q;
+  q[0] = 0;
+  q[1] = 1;
+  q[2] = 2;
+  q[3] = 3;
+
+  BOOST_CHECK(q[0] == 0);
+  BOOST_CHECK(q[1] == 1);
+  BOOST_CHECK(q[2] == 2);
+  BOOST_CHECK(q[3] == 3);
+
+  Quaternion q2(1,1,1,1);
+  GLfloat q2Mag = q2.magnitude();
+
+  BOOST_CHECK(q2Mag == 2);
+
+  q2.normalize();
+
+  BOOST_CHECK( 0.488 < q[0] < 0.522 );
+}
 
 BOOST_AUTO_TEST_SUITE_END()
