@@ -4,6 +4,7 @@
 #include <Vector.h>
 #include <Mat4.h>
 #include <Quaternion.h>
+#include <Conversion.h>
 
 #include <boost/test/unit_test.hpp>
 
@@ -79,6 +80,27 @@ BOOST_AUTO_TEST_CASE( Quaternion_test ) {
   q2.normalize();
 
   BOOST_CHECK( 0.488 < q[0] < 0.522 );
+}
+
+BOOST_AUTO_TEST_CASE( Conversion_test ) {
+ 
+  Mat4 identMat;
+  Vector vec(1,2,3,4);
+  Vector resultVec;
+  
+  resultVec = Conversion::VectorMat4Mult(vec, identMat);
+
+  BOOST_CHECK(resultVec[0] == 1);
+  BOOST_CHECK(resultVec[1] == 2);
+  BOOST_CHECK(resultVec[2] == 3);
+  BOOST_CHECK(resultVec[3] == 4);
+
+  resultVec = Conversion::Mat4VectorMult(identMat, vec);
+  
+  BOOST_CHECK(resultVec[0] == 1);
+  BOOST_CHECK(resultVec[1] == 2);
+  BOOST_CHECK(resultVec[2] == 3);
+  BOOST_CHECK(resultVec[3] == 4);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
