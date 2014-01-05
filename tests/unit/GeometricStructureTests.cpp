@@ -101,6 +101,21 @@ BOOST_AUTO_TEST_CASE( Conversion_test ) {
   BOOST_CHECK(resultVec[1] == 2);
   BOOST_CHECK(resultVec[2] == 3);
   BOOST_CHECK(resultVec[3] == 4);
+
+  Quaternion q(1,1,1,10);
+ 
+  Mat4 quatMat = Conversion::QuaternionToMat4(q);  
+  
+  printf("%s\n", quatMat.output().c_str());
+
+  GLfloat floatMat[16] = {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1};
+  
+  Mat4 matq(floatMat);
+
+  Quaternion matQuat = Conversion::Mat4ToQuaternion(matq);
+  
+  printf("%f, %f, %f, %f\n", matQuat[0], matQuat[1], matQuat[2], matQuat[3]);
+
 }
 
 BOOST_AUTO_TEST_SUITE_END()
