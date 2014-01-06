@@ -34,6 +34,12 @@ BOOST_AUTO_TEST_CASE( Vector_test )
   BOOST_CHECK( norm + 0.1 > test_vector.magnitude() &&
                norm - 0.1 < test_vector.magnitude()
              );
+
+  Vector test_vector1(1,1,1,1);
+  Vector test_vector2(1,1,1,1);
+
+  Vector result_vector = test_vector1.crossProduct(test_vector2);
+  BOOST_CHECK( result_vector == Vector(0,0,0,0)); 
 }
 
 
@@ -115,7 +121,8 @@ BOOST_AUTO_TEST_CASE( Conversion_test ) {
   Quaternion matQuat = Conversion::Mat4ToQuaternion(matq);
   
   printf("%f, %f, %f, %f\n", matQuat[0], matQuat[1], matQuat[2], matQuat[3]);
-
 }
+
+
 
 BOOST_AUTO_TEST_SUITE_END()

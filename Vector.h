@@ -30,4 +30,5 @@ struct Vector {
  void operator%=(const Vector &vector);
  GLfloat operator[](const size_t index) const;
  GLfloat& operator[](const size_t index);
+ bool operator==(const Vector &vector) const;
 };

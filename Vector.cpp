@@ -128,3 +128,14 @@ GLfloat& Vector::operator[](const size_t index) {
  }
  return w;
 }
+
+bool Vector::operator==(const Vector &vector) const {
+  Vector normalizedVector1 = normalized();
+  Vector normalizedVector2 = vector.normalized();
+
+  for (unsigned i = 0; i < 4; i++) {
+    if (normalizedVector1[i] != normalizedVector2[i]) return false; 
+  }
+  return true;
+}
+
