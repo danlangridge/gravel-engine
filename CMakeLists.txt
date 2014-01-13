@@ -1,6 +1,7 @@
 include_directories(
   ${RENDERER_SOURCE_DIR}
   ${RENDERER_SOURCE_DIR}/externals
+  ./externals
 )
 
 add_library(GeometricEntities STATIC
