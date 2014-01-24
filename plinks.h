@@ -27,3 +27,15 @@ public:
   virtual unsigned fillContact(ParticleContact *contact, unsigned limit) const = 0;
 
 };
+
+class ParticleRod : public ParticleLink 
+{
+public:
+
+  int length;
+
+  int currentLength() const;
+
+  virtual unsigned fillContact(ParticleContact *contact, unsigned limit) const;
+
+};

@@ -27,3 +27,11 @@ unsigned ParticleCable::fillContact(ParticleContact *contact, unsigned limit) co
 
   return 1;
 }
+
+unsigned ParticleRod::fillContact( ParticleContact *contact, unsigned limit) const {
+  int currentLen = currentLength();
+
+  if (currentLen == length) return 0;
+
+  return 1;
+}
