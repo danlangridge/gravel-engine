@@ -17,4 +17,6 @@ public:
 
 ParticleWorld(unsigned maxContacts, unsigned iterations=0);
 
+void startFrame();
+
 };
