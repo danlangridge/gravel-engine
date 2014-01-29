@@ -12,6 +12,7 @@ struct ParticleRegistration
 
 
 ParticleRegistration *firstParticle;
+ParticleContactResolver resolver;
 
 public:
 
@@ -19,4 +20,7 @@ ParticleWorld(unsigned maxContacts, unsigned iterations=0);
 
 void startFrame();
 
+unsigned generateContacts();
+void integrate(int duration);
+void runPhysics(int duration);
 };
