@@ -32,3 +32,24 @@ usigned ParticleWorld::generateContacts() {
   return maxContacts - limit;
 
 }
+
+void ParticleWorld::integrate(int duration) {
+
+  ParticleRegistration *reg = firstParticle;
+  while (reg) {
+    reg->particle->integrate(duration);
+    reg = reg->next;
+  }
+}
+
+  
+
+void ParticleWorld::runPhysics(int duration) {
+  
+registry.updateForces(duration);
+  integrate(duration);
+  unsigned usedContacts = generateContacts();
+
+  if (calculateIterations) resolver.etIterations(usedContacts * 2);
+  resolver.resolveContacts(contacts, usedContacts, duration);
+}
