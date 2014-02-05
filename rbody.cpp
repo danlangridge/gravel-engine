@@ -19,3 +19,9 @@ static inline void _calculateTransformMatrix( Mat4 & transformationMatrix, const
 void RigidBody::caluculateDerivedData() {
    _calculateTransformMatrix(transformMatrix, position, orientation);
 }
+
+void RigidBody::setInertiaTensor(const Mat4 &inertiaTensor)
+{
+  inverseInertiaTensor.setInverse(inertiaTensor);
+  _checkInverseInertiaTensor(inverseInertiaTensor);
+}

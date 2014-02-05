@@ -1,4 +1,5 @@
 #include <Vector.h>
+#include <Mat4.h>
 #include <Quaternion.h>
 
 
@@ -9,7 +10,7 @@ public:
   Vector position;
   Quaternion orientation;
   Vector velocity;
-  Matrix4 transformMatrix;
-  
+  Mat4 transformMatrix;
+  Mat4 InverseInertiaTensor; 
   void calculateDerivedData();
 };
