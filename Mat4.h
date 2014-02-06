@@ -32,3 +32,26 @@ struct Mat4 {
   GLfloat operator[](const size_t index) const;
   GLfloat& operator[](const size_t index);
 };
+
+struct Mat3 {
+  
+  GLfloat m[16];
+  
+  Mat3();
+  Mat3(const GLfloat m[]);
+
+  void populateMatrix(GLfloat m[]);
+
+  GLfloat det(); 
+  
+  void translate(const Vector& position);
+  
+  std::string output();
+
+  Mat3 operator*(const Mat3 &m2) const;
+  Vector operator*(const Vector &vector) const;
+  Mat3 operator*(const GLfloat &k) const;
+  Mat3 operator=(const Mat3 &matrix); 
+  GLfloat operator[](const size_t index) const;
+  GLfloat& operator[](const size_t index);
+};

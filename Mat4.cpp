@@ -105,3 +105,24 @@ GLfloat& Mat4::operator[](const size_t index) {
  return m[index];
 }
 
+
+Mat3::Mat3()
+{
+ for (unsigned index = 0; index < MAT4_SIZE; index++) {
+  if (index % 5 == 0)
+    m[index] = 1;
+  else m[index] = 0;
+ }
+}
+
+Mat3::Mat3(const GLfloat m[]) {
+ for (unsigned index = 0; index < MAT4_SIZE; index++) {
+  this->m[index] = m[index];
+ }
+}
+
+void Mat3::populateMatrix(GLfloat m[]) {
+ for (unsigned index = 0; index < MAT4_SIZE; index++) {
+  this->m[index] = m[index];
+ }
+}
