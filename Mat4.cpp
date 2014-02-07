@@ -108,21 +108,44 @@ GLfloat& Mat4::operator[](const size_t index) {
 
 Mat3::Mat3()
 {
- for (unsigned index = 0; index < MAT4_SIZE; index++) {
-  if (index % 5 == 0)
+ for (unsigned index = 0; index < MAT3_SIZE; index++) {
+  if (index % 4 == 0)
     m[index] = 1;
   else m[index] = 0;
  }
 }
 
 Mat3::Mat3(const GLfloat m[]) {
- for (unsigned index = 0; index < MAT4_SIZE; index++) {
+ for (unsigned index = 0; index < MAT3_SIZE; index++) {
   this->m[index] = m[index];
  }
 }
 
 void Mat3::populateMatrix(GLfloat m[]) {
- for (unsigned index = 0; index < MAT4_SIZE; index++) {
+ for (unsigned index = 0; index < MAT3_SIZE; index++) {
   this->m[index] = m[index];
  }
+}
+
+Mat3 Mat3::operator*(const GLfloat &k) const {
+ Mat3 matrix = Mat3(m); 
+ for (unsigned index = 0; index < MAT3_SIZE; index++) {
+   matrix.m[index] = m[index]*k; 
+ }
+ return matrix; 
+}
+  
+Mat3 Mat3::operator=(const Mat3 &matrix) {
+ for (unsigned index = 0; index < MAT3_SIZE; index++) {
+   m[index] = matrix.m[index]; 
+ }
+ return *this; 
+}
+
+GLfloat Mat3::operator[](const size_t index) const {
+ return m[index];
+}
+
+GLfloat& Mat3::operator[](const size_t index) {
+ return m[index];
 }

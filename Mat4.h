@@ -3,6 +3,7 @@
 #include <string>
 
 static const int MAT4_SIZE = 16; 
+static const int MAT3_SIZE = 9; 
 
 
 /*
@@ -35,7 +36,7 @@ struct Mat4 {
 
 struct Mat3 {
   
-  GLfloat m[16];
+  GLfloat m[9];
   
   Mat3();
   Mat3(const GLfloat m[]);
