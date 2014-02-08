@@ -106,6 +106,7 @@ GLfloat& Mat4::operator[](const size_t index) {
 }
 
 
+
 Mat3::Mat3()
 {
  for (unsigned index = 0; index < MAT3_SIZE; index++) {
@@ -148,4 +149,11 @@ GLfloat Mat3::operator[](const size_t index) const {
 
 GLfloat& Mat3::operator[](const size_t index) {
  return m[index];
+}
+
+Vector Mat3::operator*(const Vector &vector) const {
+ return Vector( m[0]*vector.x + m[1]*vector.y + m[2]*vector.z,
+                m[4]*vector.x + m[5]*vector.y + m[6]*vector.z,
+                m[8]*vector.x + m[9]*vector.y + m[10]*vector.z
+              );
 }
