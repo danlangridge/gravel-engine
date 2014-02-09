@@ -128,6 +128,12 @@ void Mat3::populateMatrix(GLfloat m[]) {
  }
 }
 
+GLfloat Mat3::det() {
+
+  return m[0]*m[4]*m[8] + m[3]*m[7]*m[2] + m[6]*m[1]*m[5] -
+         m[6]*m[4]*m[2] - m[3]*m[1]*m[8] - m[0]*m[7]*m[5];
+}
+
 Mat3 Mat3::operator*(const GLfloat &k) const {
  Mat3 matrix = Mat3(m); 
  for (unsigned index = 0; index < MAT3_SIZE; index++) {
