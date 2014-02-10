@@ -20,8 +20,17 @@ void RigidBody::caluculateDerivedData() {
    _calculateTransformMatrix(transformMatrix, position, orientation);
 }
 
-void RigidBody::setInertiaTensor(const Mat4 &inertiaTensor)
-{
+void RigidBody::setInertiaTensor(const Mat4 &inertiaTensor) {
   inverseInertiaTensor.setInverse(inertiaTensor);
   _checkInverseInertiaTensor(inverseInertiaTensor);
+}
+
+void RigidBody::integrate(int duration) {
+  Vector angularAcceleration;
+
+  velocity = velocity + duration*angularAcceleration;
+
+  rotation = rotation + duration*angularAcceleration;
+
+  position = position + duration*velocity;
 }

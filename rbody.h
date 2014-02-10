@@ -12,5 +12,6 @@ public:
   Vector velocity;
   Mat4 transformMatrix;
   Mat4 InverseInertiaTensor; 
-  void calculateDerivedData();
+  void calculateDerivedData(); 
+  void integrate(int duration); 
 };
