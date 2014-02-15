@@ -7,6 +7,7 @@ class RigidBody {
 
 public:
   int inverseMass;
+  int angularDamping; 
   Vector position;
   Quaternion orientation;
   Vector velocity;

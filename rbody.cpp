@@ -33,4 +33,8 @@ void RigidBody::integrate(int duration) {
   rotation = rotation + duration*angularAcceleration;
 
   position = position + duration*velocity;
+  
+  rotation *= angularDamping^(duration);
+
+  calculateDerivedData();
 }
