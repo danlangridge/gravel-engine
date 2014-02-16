@@ -8,6 +8,11 @@ int ParticleLink::currentLink() const {
   return relativePosition.magnitude();
 }
 
+unsigned ParticleLink::currentLength() const {
+  Vector relativePos = particle[0] -> getPosition() - particle[1]->getPosition();
+  return relativePos.magnitude(); 
+}
+
 unsigned ParticleCable::fillContact(ParticleContact *contact, unsigned limit) const {
   
   int length = currentLength();
