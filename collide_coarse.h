@@ -22,4 +22,19 @@ template<class BoundingVolumeClass>
 bool BVHNode<BoundingVolumeClass>::overlaps( const BVHNode<BoundingVolumeClass>* other ) const
 {
   return volume->overlaps(other->volume);
+}
+
+template<class BoundingVolumeClass>
+unsigned BVHNode <BoundingVolumeClass>::getPotentialContactsWith(
+                                                                 const BVHNode<BoundingVolumeClass> *other, 
+                                                                 PotentialContact* contacts,
+                                                                 unsigned limit
+                                                                ) const
+{
+  if (!overlaps(other) || limit == 0) return 0;
+  if (isLeaf() && other->isLeaf()) {
+    contacts->body[0] = body;
+    contacts->body[1] = other->body;
+    return 1;
+  }
 } 
