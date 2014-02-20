@@ -40,5 +40,10 @@ unsigned BVHNode <BoundingVolumeClass>::getPotentialContactsWith(
 
   if (other->isLeaf() || !isLeaf() && volume->getSize() >= other->volume->getSize()) {
     unsigned count = children[0]->getPotentialContactsWith( other, contacts, limit);
-  
+    
+    if (limit > count) {
+       return count + children[1]->getPotentialContactsWith(other, contacts+count,limit-count);
+    }
+    else return count;
+  }   
 } 
